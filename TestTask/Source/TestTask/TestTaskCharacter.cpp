@@ -44,6 +44,9 @@ ATestTaskCharacter::ATestTaskCharacter()
 
 	HeroComponent = CreateDefaultSubobject<UTTHeroComponent>(TEXT("HeroComponent"));
 	InteractComponent = CreateDefaultSubobject<UTTInteractComponent>(TEXT("InteractComponent"));
+
+	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMesh"));
+	ItemMesh->SetupAttachment(GetMesh(), FName(TEXT("LeftHandSocket")));
 }
 
 void ATestTaskCharacter::PossessedBy(AController* InController)
