@@ -17,6 +17,7 @@ class UInputAction;
 struct FInputActionValue;
 class UGameplayAbility;
 class UTTHeroComponent;
+class UTTInteractComponent;
 
 UCLASS(config=Game)
 class ATestTaskCharacter : public ACharacter, public IAbilitySystemInterface
@@ -25,9 +26,6 @@ class ATestTaskCharacter : public ACharacter, public IAbilitySystemInterface
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* CameraBoom;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	UCameraComponent* FPCamera;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* TPCamera;
@@ -50,7 +48,6 @@ public:
 	class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 
 	class UCameraComponent* GetTPCamera() const { return TPCamera; }
-	class UCameraComponent* GetFPCamera() const { return FPCamera; }
 
 	virtual void PossessedBy(AController* InController) override;
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
@@ -80,5 +77,8 @@ private:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UTTHeroComponent* HeroComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UTTInteractComponent* InteractComponent;
 };
 
