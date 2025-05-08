@@ -17,7 +17,7 @@ enum class ETTAbilityInputID
 	Sprint,
 	Jump,
 	Reload,
-	Slide
+	Slide,
 };
 
 USTRUCT()

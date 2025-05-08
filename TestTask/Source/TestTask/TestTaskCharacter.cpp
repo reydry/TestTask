@@ -13,6 +13,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "AbilitySystemComponent.h"
 #include "PlayerState/TTPlayerState.h"
+#include "Interacts/TTInteractComponent.h"
 
 ATestTaskCharacter::ATestTaskCharacter()
 {
@@ -36,16 +37,13 @@ ATestTaskCharacter::ATestTaskCharacter()
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->TargetArmLength = 400.0f; 
 	CameraBoom->bUsePawnControlRotation = true; 
-	
-	FPCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPCamera"));
-	FPCamera->SetupAttachment(GetMesh(), FName(TEXT("Head")));
-	FPCamera->bUsePawnControlRotation = true; 
 
 	TPCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TPCamera"));
 	TPCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); 
 	TPCamera->bUsePawnControlRotation = false; 
 
 	HeroComponent = CreateDefaultSubobject<UTTHeroComponent>(TEXT("HeroComponent"));
+	InteractComponent = CreateDefaultSubobject<UTTInteractComponent>(TEXT("InteractComponent"));
 }
 
 void ATestTaskCharacter::PossessedBy(AController* InController)
