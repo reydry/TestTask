@@ -94,6 +94,7 @@ void ATestTaskCharacter::SetupAbilities()
 {
 	for (TPair<TSubclassOf<UGameplayAbility>, ETTAbilityInputID>& Ability : Abilities)
 	{
+		
 		GiveAbility(Ability.Key, 0, static_cast<int32>(Ability.Value));
 	}
 }
