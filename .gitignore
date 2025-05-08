@@ -73,7 +73,3 @@ Build/*/**
 # Cache files for the editor to use
 DerivedDataCache/*
 /TestTask/Binaries
-
-# Content
-*/Content/__ExternalActors__
-*/Content/__ExternalObjects__

@@ -18,6 +18,8 @@ enum class ETTAbilityInputID
 	Jump,
 	Reload,
 	Slide,
+	SwitchWeapon,
+	SwitchCamera
 };
 
 USTRUCT()
