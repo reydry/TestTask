@@ -18,6 +18,7 @@ struct FInputActionValue;
 class UGameplayAbility;
 class UTTHeroComponent;
 class UTTInteractComponent;
+class UTTInventoryComponent;
 
 UCLASS(config=Game)
 class ATestTaskCharacter : public ACharacter, public IAbilitySystemInterface
@@ -52,13 +53,15 @@ public:
 	virtual void PossessedBy(AController* InController) override;
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
-protected:
 	UFUNCTION(BlueprintCallable)
 	void GiveAbility(TSubclassOf<UGameplayAbility> InAbility, int32 Level, int32 InputID);
 	
 	UFUNCTION(BlueprintCallable)
 	void RemoveAbility(TSubclassOf<UGameplayAbility> InAbility);
 
+	UStaticMeshComponent* GetItemMesh() const;
+
+protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void InitAbilitySystem(AController* InController);
@@ -83,5 +86,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* ItemMesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	UTTInventoryComponent* InventoryComponent;
 };
 

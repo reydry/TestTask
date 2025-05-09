@@ -20,6 +20,6 @@ class TESTTASK_API ITTInteractInterface
 
 public:
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-	void Interact();
+	void Interact(AActor* InActor);
 	
 };

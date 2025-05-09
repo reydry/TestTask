@@ -14,6 +14,7 @@
 #include "AbilitySystemComponent.h"
 #include "PlayerState/TTPlayerState.h"
 #include "Interacts/TTInteractComponent.h"
+#include "Components/TTInventoryComponent.h"
 
 ATestTaskCharacter::ATestTaskCharacter()
 {
@@ -47,6 +48,8 @@ ATestTaskCharacter::ATestTaskCharacter()
 
 	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMesh"));
 	ItemMesh->SetupAttachment(GetMesh(), FName(TEXT("LeftHandSocket")));
+
+	InventoryComponent = CreateDefaultSubobject<UTTInventoryComponent>(TEXT("InventoryComponent"));
 }
 
 void ATestTaskCharacter::PossessedBy(AController* InController)
@@ -117,4 +120,9 @@ void ATestTaskCharacter::RemoveAbility(TSubclassOf<UGameplayAbility> InAbility)
 		AbilitySystemComponent->ClearAbility(AbilitySpecHandle);
 		GivenAbilities.Remove(InAbility);
 	}
+}
+
+UStaticMeshComponent* ATestTaskCharacter::GetItemMesh() const
+{
+	return ItemMesh;
 }
