@@ -8,8 +8,8 @@
 #include "EnhancedInputComponent.h"
 #include "TTHeroComponent.generated.h"
 
-UENUM()
-enum class ETTAbilityInputID
+UENUM(BlueprintType)
+enum class ETTAbilityInputID : uint8
 {
 	None,
 	Fire,
@@ -18,6 +18,8 @@ enum class ETTAbilityInputID
 	Jump,
 	Reload,
 	Slide,
+	SwitchWeapon,
+	SwitchCamera
 };
 
 USTRUCT()
@@ -46,6 +48,21 @@ class UTTAbilityInputConfig : public UDataAsset
 public:
 	UPROPERTY(EditDefaultsOnly)
 	TArray<FTTAbilityInput> Inputs;
+};
+
+
+UCLASS(BlueprintType)
+class UTTWeaponDataAsset : public UDataAsset
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UStaticMesh* WeaponMesh;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<UObject> WeaponActorClass;
+
 };
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
