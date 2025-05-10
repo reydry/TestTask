@@ -3,7 +3,7 @@
 
 #include "TTHeroComponent.h"
 #include "AbilitySystemComponent.h"
-#include "TestTask/TestTaskCharacter.h"
+#include "Characters/TTCharacter.h"
 
 UTTHeroComponent::UTTHeroComponent()
 {
@@ -67,7 +67,7 @@ void UTTHeroComponent::InitializePlayerInput(UInputComponent* PlayerInputCompone
 
 void UTTHeroComponent::AbilityInputPressed(int32 InputID)
 {
-	if (ATestTaskCharacter* Character = GetOwner<ATestTaskCharacter>())
+	if (ATTCharacter* Character = GetOwner<ATTCharacter>())
 	{
 		if (UAbilitySystemComponent* AbilitySystem = Character->GetAbilitySystemComponent())
 		{
@@ -78,7 +78,7 @@ void UTTHeroComponent::AbilityInputPressed(int32 InputID)
 
 void UTTHeroComponent::AbilityInputReleased(int32 InputID)
 {
-	if (ATestTaskCharacter* Character = GetOwner<ATestTaskCharacter>())
+	if (ATTCharacter* Character = GetOwner<ATTCharacter>())
 	{
 		if (UAbilitySystemComponent* AbilitySystem = Character->GetAbilitySystemComponent())
 		{
