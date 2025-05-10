@@ -12,6 +12,7 @@
 class UGameplayAbility;
 class UTTInteractComponent;
 class UTTInventoryComponent;
+class UGameplayEffect;
 
 UCLASS()
 class TESTTASK_API ATTCharacter : public ACharacter, public IAbilitySystemInterface
@@ -40,11 +41,16 @@ protected:
 
 	void SetupAbilities();
 
+	void ApplyStartupAttributes();
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Abilities)
 	TMap<TSubclassOf<UGameplayAbility>, ETTAbilityInputID> Abilities;
 
 	UPROPERTY(BlueprintReadOnly)
 	TMap<TSubclassOf<UGameplayAbility>, FGameplayAbilitySpecHandle> GivenAbilities;
+	
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UGameplayEffect> AttributesEffect;
 
 private:
 	UPROPERTY()

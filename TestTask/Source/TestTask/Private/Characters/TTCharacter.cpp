@@ -63,6 +63,14 @@ void ATTCharacter::SetupAbilities()
 	}
 }
 
+void ATTCharacter::ApplyStartupAttributes()
+{
+	if (IsValid(AbilitySystemComponent))
+	{
+		AbilitySystemComponent->ApplyGameplayEffectToSelf(AttributesEffect.GetDefaultObject(), 1, FGameplayEffectContextHandle());
+	}
+}
+
 UAbilitySystemComponent* ATTCharacter::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
@@ -75,6 +83,8 @@ void ATTCharacter::PossessedBy(AController* InController)
 	InitAbilitySystem(InController);
 
 	SetupAbilities();
+
+	ApplyStartupAttributes();
 }
 
 UStaticMeshComponent* ATTCharacter::GetItemMesh() const
