@@ -2,7 +2,7 @@
 
 
 #include "GameplayAbility/TTGameplayAbility.h"
-#include "TestTask/TestTaskCharacter.h"
+#include "Characters/TTCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
 void UTTGameplayAbility::InputReleased(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo)
@@ -10,9 +10,9 @@ void UTTGameplayAbility::InputReleased(const FGameplayAbilitySpecHandle Handle, 
 	EndAbility(Handle, ActorInfo, ActivationInfo, false, true);
 }
 
-ATestTaskCharacter* UTTGameplayAbility::GetTTCharacter() const
+ATTCharacter* UTTGameplayAbility::GetTTCharacter() const
 {
-	return 	(CurrentActorInfo ? Cast<ATestTaskCharacter>(CurrentActorInfo->AvatarActor.Get()) : nullptr);
+	return 	(CurrentActorInfo ? Cast<ATTCharacter>(CurrentActorInfo->AvatarActor.Get()) : nullptr);
 }
 
 UCharacterMovementComponent* UTTGameplayAbility::GetCharacterMovementComponent()

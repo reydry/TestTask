@@ -3,7 +3,7 @@
 
 #include "Components/TTInventoryComponent.h"
 #include "Weapons/TTBaseWeapon.h"
-#include "TestTask/TestTaskCharacter.h"
+#include "Characters/TTCharacter.h"
 
 UTTInventoryComponent::UTTInventoryComponent()
 {
@@ -23,7 +23,7 @@ void UTTInventoryComponent::AddWeapon(UObject* InWeapon)
 
 void UTTInventoryComponent::SetCurrentWeapon(UTTBaseWeapon* InWeapon)
 {
-	ATestTaskCharacter* Character = GetTTCharacter();
+	ATTCharacter* Character = GetTTCharacter();
 
 	if (!IsValid(InWeapon) || !IsValid(Character))
 	{
@@ -62,8 +62,8 @@ UTTInventoryComponent* UTTInventoryComponent::GetInventoryComponentFromActor(AAc
 	return (InActor ? InActor->FindComponentByClass<UTTInventoryComponent>() : nullptr);
 }
 
-ATestTaskCharacter* UTTInventoryComponent::GetTTCharacter() const
+ATTCharacter* UTTInventoryComponent::GetTTCharacter() const
 {
-	return (GetOwner() ? Cast<ATestTaskCharacter>(GetOwner()) : nullptr);
+	return (GetOwner() ? Cast<ATTCharacter>(GetOwner()) : nullptr);
 }
 

@@ -7,7 +7,7 @@
 #include "TTInventoryComponent.generated.h"
 
 class UTTBaseWeapon;
-class ATestTaskCharacter;
+class ATTCharacter;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TESTTASK_API UTTInventoryComponent : public UActorComponent
@@ -33,7 +33,7 @@ public:
 	static UTTInventoryComponent* GetInventoryComponentFromActor(AActor* InActor);
 
 protected:
-	ATestTaskCharacter* GetTTCharacter() const;
+	ATTCharacter* GetTTCharacter() const;
 
 private:
 	UPROPERTY()
