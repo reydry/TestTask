@@ -52,6 +52,7 @@ void ATTCharacter::InitAbilitySystem(AController* InController)
 	if (IsValid(AbilitySystemComponent))
 	{
 		AbilitySystemComponent->InitAbilityActorInfo(this, this);
+		OnAbilitySystemInited.Broadcast();
 	}
 }
 

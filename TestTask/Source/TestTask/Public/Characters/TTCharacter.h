@@ -14,6 +14,8 @@ class UTTInteractComponent;
 class UTTInventoryComponent;
 class UGameplayEffect;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAbilitySystemInitedDelegateSignature);
+
 UCLASS()
 class TESTTASK_API ATTCharacter : public ACharacter, public IAbilitySystemInterface
 {
@@ -36,6 +38,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void OnDeath();
+
+	UPROPERTY(VisibleAnywhere, BlueprintAssignable)
+	FOnAbilitySystemInitedDelegateSignature OnAbilitySystemInited;
 
 protected:
 	virtual void BeginPlay() override;
