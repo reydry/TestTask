@@ -4,6 +4,7 @@
 #include "Components/TTAttributeSet.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "GameplayEffectExtension.h"
+#include "PlayerState/TTPlayerState.h"
 
 UTTAttributeSet::UTTAttributeSet()
 {
@@ -21,6 +22,17 @@ void UTTAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 		SetHealth(FMath::Clamp(GetHealth(), 0.0f, GetMaxHealth()));
 
 		OnHealthChangedDelegate.Broadcast(Instigator, GetHealth(), GetMaxHealth());
+		
+		if (FMath::IsNearlyZero(GetHealth()))
+		{
+			FGameplayEventData Payload;
+
+			Payload.EventTag = FGameplayTag::RequestGameplayTag("Event.Death");
+			Payload.Instigator = Instigator;
+			Payload.Target = GetOwningActor();
+
+			UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(GetOwningActor(), FGameplayTag::RequestGameplayTag("Event.Death"), Payload);
+		}
 	}
 }
 

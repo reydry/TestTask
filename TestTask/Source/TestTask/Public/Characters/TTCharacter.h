@@ -34,6 +34,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RemoveAbility(TSubclassOf<UGameplayAbility> InAbility);
 
+	UFUNCTION(BlueprintCallable)
+	void OnDeath();
+
 protected:
 	virtual void BeginPlay() override;
 	

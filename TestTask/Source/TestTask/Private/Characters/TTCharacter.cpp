@@ -112,3 +112,15 @@ void ATTCharacter::RemoveAbility(TSubclassOf<UGameplayAbility> InAbility)
 	}
 }
 
+void ATTCharacter::OnDeath()
+{
+	AController* TTController = GetController();
+	
+	if (IsValid(TTController))
+	{
+		TTController->UnPossess();
+	}
+
+	Destroy();
+}
+
