@@ -9,6 +9,7 @@
 #include "TTPlayerState.generated.h"
 
 class UAbilitySystemComponent;
+class UTTAttributeSet;
 
 UCLASS()
 class TESTTASK_API ATTPlayerState : public APlayerState, public IAbilitySystemInterface
@@ -20,10 +21,16 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
+	UFUNCTION(BlueprintPure)
+	UTTAttributeSet* GetAttributeSet();
+
 protected:
 	virtual void BeginPlay() override;
 	
 private:
 	UPROPERTY(VisibleAnywhere)
 	UAbilitySystemComponent* AbilitySystemComponent;
+
+	UPROPERTY()
+	UTTAttributeSet* AttributeSet;
 };

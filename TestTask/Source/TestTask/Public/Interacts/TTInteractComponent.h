@@ -29,10 +29,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RemoveInteractionObject(AActor* InObject);
 
-protected:
-	UPROPERTY(EditDefaultsOnly)
-	UTTAbilityInputConfig* InputConfig;
-
 private:
 	UPROPERTY()
 	TArray<AActor*> InteractionObjects;
