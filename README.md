@@ -45,3 +45,4 @@ Project Structure Description:
       Rifle asset
       Data asset containing pickup info for the rifle
 
+slide, wall run, climbing - not imlemented
