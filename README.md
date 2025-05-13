@@ -45,4 +45,30 @@ Project Structure Description:
       Rifle asset
       Data asset containing pickup info for the rifle
 
-slide, wall run, climbing - not imlemented
+slide, wall run, climbing - not implemented
+
+с++ classes:
+TTCharacter - base class for character in the game (for player and ai)
+              contains pointer to ability system
+              abilities
+              InteractComponent
+              ItemMesh - static mesh that represents weapon in hands
+              InventoryComponent
+
+TTAttributeSet - player attributes such as health. responsible for processing health when dealing damage
+                  
+TTIntventoryComponent - component that is responsible for the inventory system/ contains pointers to all weapons that were picked by the player and pointer to the weapon in player hands 
+
+TTGameplayAbility - base class for all gameplay abilities in the game
+
+TTInteractComponent - component that is responsible for interaction with objects. pretty simple logic. adds object on overlap to array of objects that the player can interact with
+
+TTInteractInterface - intarface for interactibles 
+
+TTPlayerController - base class for playyer controller, contains movement and look bindings
+
+TTPlayerState - main class where ability system is stored
+
+TTBaseWeapon - base class for all weapons
+
+TTHeroComponent - component which is responsible for activating the abilites and bindings. 
